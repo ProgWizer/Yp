@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="0ed5bcb3b3cd4017a71f121ee531b55e" Name="Diagram1">
+        <EntityTypeShape EntityType="KingAndJokeModel.AuthorRequests" Width="1.5" PointX="5.25" PointY="7.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="KingAndJokeModel.Authors" Width="1.5" PointX="5.25" PointY="10.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="KingAndJokeModel.BookLists" Width="1.5" PointX="10.5" PointY="14.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="KingAndJokeModel.Books" Width="1.5" PointX="7.5" PointY="10.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="KingAndJokeModel.Freezes" Width="1.5" PointX="3" PointY="4.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="KingAndJokeModel.Genres" Width="1.5" PointX="9.75" PointY="11" IsExpanded="true" />
+        <EntityTypeShape EntityType="KingAndJokeModel.Reports" Width="1.5" PointX="5.25" PointY="14.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="KingAndJokeModel.ReportTypes" Width="1.5" PointX="3" PointY="14.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="KingAndJokeModel.Reviews" Width="1.5" PointX="9.75" PointY="6.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="KingAndJokeModel.Roles" Width="1.5" PointX="0.75" PointY="9.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="KingAndJokeModel.UnfreezeRequests" Width="1.5" PointX="5.25" PointY="4.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="KingAndJokeModel.UserBookLists" Width="1.5" PointX="12.75" PointY="10" IsExpanded="true" />
+        <EntityTypeShape EntityType="KingAndJokeModel.Users" Width="1.5" PointX="3" PointY="8.875" IsExpanded="true" />
+        <AssociationConnector Association="KingAndJokeModel.FK__AuthorReq__UserI__6C190EBB" ManuallyRouted="false" />
+        <AssociationConnector Association="KingAndJokeModel.FK__Authors__UserId__4316F928" ManuallyRouted="false" />
+        <AssociationConnector Association="KingAndJokeModel.FK__Books__AuthorId__47DBAE45" ManuallyRouted="false" />
+        <AssociationConnector Association="KingAndJokeModel.FK__UserBookL__ListI__5CD6CB2B" ManuallyRouted="false" />
+        <AssociationConnector Association="KingAndJokeModel.FK__Reviews__BookId__5535A963" ManuallyRouted="false" />
+        <AssociationConnector Association="KingAndJokeModel.FK__UserBookL__BookI__5BE2A6F2" ManuallyRouted="false" />
+        <AssociationConnector Association="KingAndJokeModel.FK__UnfreezeR__Freez__70DDC3D8" ManuallyRouted="false" />
+        <AssociationConnector Association="KingAndJokeModel.FK__Reports__Reporte__6383C8BA" ManuallyRouted="false" />
+        <AssociationConnector Association="KingAndJokeModel.FK__Reports__TargetT__6477ECF3" ManuallyRouted="false" />
+        <AssociationConnector Association="KingAndJokeModel.FK__Reviews__UserId__5441852A" ManuallyRouted="false" />
+        <AssociationConnector Association="KingAndJokeModel.FK__UnfreezeR__UserI__6FE99F9F" ManuallyRouted="false" />
+        <AssociationConnector Association="KingAndJokeModel.FK__UserBookL__UserI__5AEE82B9" ManuallyRouted="false" />
+        <AssociationConnector Association="KingAndJokeModel.BookGenres" ManuallyRouted="false" />
+        <AssociationConnector Association="KingAndJokeModel.UserRoles" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>
