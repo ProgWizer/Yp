@@ -40,17 +40,16 @@ namespace Yp2.Pages
         }
         public enum role
         {
-            client,
-            master,
-            manager,
-            admin
+            User,
+            Author,
+            Admin
 
         }
 
         private void reg_Click(object sender, RoutedEventArgs e)
         {
 
-            if (Core.Db.Users.Any(u => u.Login == login.Text))
+            if (Core.DB.Users.Any(u => u.Login == login.Text))
             {
                 MessageBox.Show("Такой логин уже существует");
                 return;
@@ -58,23 +57,21 @@ namespace Yp2.Pages
 
             Users user = new Users
             {
-                FirstName = Nameu.Text,
-                LastName = LastName.Text,
+                Username = Nameu.Text,
                 Login = login.Text,
                 Password = passw.Text,
-                RoleId = cmb.SelectedIndex + 1
             };
 
-            Core.Db.Users.Add(user);
-            Core.Db.SaveChanges();
+            Core.DB.Users.Add(user);
+            Core.DB.SaveChanges();
 
             MessageBox.Show("Регистрация успешна");
-            NavigationService.Navigate(new Auth());
+            NavigationService.Navigate(new AuthPage());
         }
 
         private void enter_Click(object sender, RoutedEventArgs e)
         {
-            NavigationService.Navigate(new Auth());
+            NavigationService.Navigate(new AuthPage());
         }
     }
 }

@@ -4,10 +4,10 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="0ed5bcb3b3cd4017a71f121ee531b55e" Name="Diagram1">
+      <Diagram DiagramId="901330d3d1e943d0a6378bb0c5da413a" Name="Diagram1">
         <EntityTypeShape EntityType="KingAndJokeModel.AuthorRequests" Width="1.5" PointX="5.25" PointY="7.5" IsExpanded="true" />
         <EntityTypeShape EntityType="KingAndJokeModel.Authors" Width="1.5" PointX="5.25" PointY="10.875" IsExpanded="true" />
-        <EntityTypeShape EntityType="KingAndJokeModel.BookLists" Width="1.5" PointX="10.5" PointY="14.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="KingAndJokeModel.BookLists" Width="1.5" PointX="10.5" PointY="14.25" IsExpanded="true" />
         <EntityTypeShape EntityType="KingAndJokeModel.Books" Width="1.5" PointX="7.5" PointY="10.25" IsExpanded="true" />
         <EntityTypeShape EntityType="KingAndJokeModel.Freezes" Width="1.5" PointX="3" PointY="4.25" IsExpanded="true" />
         <EntityTypeShape EntityType="KingAndJokeModel.Genres" Width="1.5" PointX="9.75" PointY="11" IsExpanded="true" />
@@ -15,9 +15,10 @@
         <EntityTypeShape EntityType="KingAndJokeModel.ReportTypes" Width="1.5" PointX="3" PointY="14.625" IsExpanded="true" />
         <EntityTypeShape EntityType="KingAndJokeModel.Reviews" Width="1.5" PointX="9.75" PointY="6.75" IsExpanded="true" />
         <EntityTypeShape EntityType="KingAndJokeModel.Roles" Width="1.5" PointX="0.75" PointY="9.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="KingAndJokeModel.sysdiagrams" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
         <EntityTypeShape EntityType="KingAndJokeModel.UnfreezeRequests" Width="1.5" PointX="5.25" PointY="4.25" IsExpanded="true" />
         <EntityTypeShape EntityType="KingAndJokeModel.UserBookLists" Width="1.5" PointX="12.75" PointY="10" IsExpanded="true" />
-        <EntityTypeShape EntityType="KingAndJokeModel.Users" Width="1.5" PointX="3" PointY="8.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="KingAndJokeModel.Users" Width="1.5" PointX="3" PointY="8.75" IsExpanded="true" />
         <AssociationConnector Association="KingAndJokeModel.FK__AuthorReq__UserI__6C190EBB" ManuallyRouted="false" />
         <AssociationConnector Association="KingAndJokeModel.FK__Authors__UserId__4316F928" ManuallyRouted="false" />
         <AssociationConnector Association="KingAndJokeModel.FK__Books__AuthorId__47DBAE45" ManuallyRouted="false" />

@@ -9,6 +9,17 @@
       Title="AuthPage">
 
     <Grid>
-        
+        <Button Content="Назад" HorizontalAlignment="Right" VerticalAlignment="Top" Height="35" Width="60" Margin="10" Click="B_Back_Click"/>
+        <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center" Width="250">
+            <TextBlock Text="Логин" Margin="0,0,0,5"/>
+            <TextBox x:Name="login" Height="30" Margin="0,0,0,10"/>
+
+            <TextBlock Text="Пароль" Margin="0,0,0,5"/>
+            <TextBox x:Name="passw" Height="30" Margin="0,0,0,10"/>
+
+            <Button Content="Войти" Height="35" Margin="0,0,0,10" Click="enter_Click"/>
+
+            <Button Content="Нету аккаунта? Зарегистрироваться" Height="35" Click="reg_Click"/> 
+        </StackPanel>
     </Grid>
 </Page>

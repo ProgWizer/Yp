@@ -13,10 +13,10 @@ namespace Yp2
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     
-    public partial class KingAndJokeEntities : DbContext
+    public partial class KingAndJokeEntities1 : DbContext
     {
-        public KingAndJokeEntities()
-            : base("name=KingAndJokeEntities")
+        public KingAndJokeEntities1()
+            : base("name=KingAndJokeEntities1")
         {
         }
     
@@ -35,6 +35,7 @@ namespace Yp2
         public virtual DbSet<ReportTypes> ReportTypes { get; set; }
         public virtual DbSet<Reviews> Reviews { get; set; }
         public virtual DbSet<Roles> Roles { get; set; }
+        public virtual DbSet<sysdiagrams> sysdiagrams { get; set; }
         public virtual DbSet<UnfreezeRequests> UnfreezeRequests { get; set; }
         public virtual DbSet<UserBookLists> UserBookLists { get; set; }
         public virtual DbSet<Users> Users { get; set; }

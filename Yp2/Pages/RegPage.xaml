@@ -9,22 +9,11 @@
       Title="RegPage">
 
     <Grid>
-        <Button Content="Назад"
-         HorizontalAlignment="Right"
-         VerticalAlignment="Top"
-         Height="35"
-         Width="60"
-         Margin="10"
-         Click="BBack_Click"/>
+        <Button Content="Назад" HorizontalAlignment="Right" VerticalAlignment="Top" Height="35" Width="60" Margin="10" Click="BBack_Click"/>
 
-        <StackPanel HorizontalAlignment="Center"
-             VerticalAlignment="Center"
-             Width="250">
+        <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center" Width="250">
             <TextBlock Text="Имя" Margin="0,0,0,5"/>
             <TextBox x:Name="Nameu" Height="30" Margin="0,0,0,10"/>
-
-            <TextBlock Text="Фамилия" Margin="0,0,0,5"/>
-            <TextBox x:Name="LastName" Height="30" Margin="0,0,0,10"/>
 
             <TextBlock Text="Логин" Margin="0,0,0,5"/>
             <TextBox x:Name="login" Height="30" Margin="0,0,0,10"/>
@@ -32,16 +21,9 @@
             <TextBlock Text="Пароль" Margin="0,0,0,5"/>
             <TextBox x:Name="passw" Height="30" Margin="0,0,0,10"/>
 
-            <ComboBox x:Name="cmb" Margin="0,0,0,10"/>
+            <Button Content="Зарегистрироваться" Height="35" Margin="0,0,0,10" Click="reg_Click"/>
 
-            <Button Content="Зарегистрироваться"
-             Height="35"
-             Margin="0,0,0,10"
-             Click="reg_Click"/>
-
-            <Button Content="Есть аккаунт? Войти"
-             Height="35"
-             Click="enter_Click"/>
+            <Button Content="Есть аккаунт? Войти" Height="35" Click="enter_Click"/>
         </StackPanel>
     </Grid>
 </Page>
