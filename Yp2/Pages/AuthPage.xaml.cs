@@ -60,13 +60,10 @@ namespace Yp2.Pages
                 return;
             }
 
-            //Core.CurrentUser = user;
-            //Core.use = 1;
+            Core.CurrentUser = user;
 
             MessageBox.Show("Успешно");
-            //NavigationService.Navigate(new MainPage());
-            NavigationService.Navigate(new RegPage());
-
+            NavigationService.Navigate(new MainPage());
         }
     }
 }

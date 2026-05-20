@@ -1,0 +1,175 @@
+-- =====================
+-- ROLES
+-- =====================
+CREATE TABLE Roles (
+    Id INT IDENTITY PRIMARY KEY,
+    Name NVARCHAR(50) UNIQUE NOT NULL
+);
+
+INSERT INTO Roles (Name) VALUES
+('User'), ('Author'), ('Admin');
+
+
+-- =====================
+-- USERS
+-- =====================
+CREATE TABLE Users (
+    Id INT IDENTITY PRIMARY KEY,
+    Username NVARCHAR(100) NOT NULL,
+    Email NVARCHAR(255) UNIQUE NOT NULL,
+    PasswordHash NVARCHAR(255) NOT NULL,
+    CreatedAt DATETIME DEFAULT GETDATE()
+);
+
+CREATE TABLE UserRoles (
+    UserId INT,
+    RoleId INT,
+    PRIMARY KEY (UserId, RoleId),
+    FOREIGN KEY (UserId) REFERENCES Users(Id),
+    FOREIGN KEY (RoleId) REFERENCES Roles(Id)
+);
+
+
+-- =====================
+-- AUTHORS
+-- =====================
+CREATE TABLE Authors (
+    Id INT IDENTITY PRIMARY KEY,
+    UserId INT UNIQUE,
+    Bio NVARCHAR(MAX),
+    FOREIGN KEY (UserId) REFERENCES Users(Id)
+);
+
+
+-- =====================
+-- BOOKS
+-- =====================
+CREATE TABLE Books (
+    Id INT IDENTITY PRIMARY KEY,
+    Title NVARCHAR(255) NOT NULL,
+    Description NVARCHAR(MAX),
+    CoverUrl NVARCHAR(500),
+    AuthorId INT,
+    CreatedAt DATETIME DEFAULT GETDATE(),
+    IsFrozen BIT DEFAULT 0,
+    FOREIGN KEY (AuthorId) REFERENCES Authors(Id)
+);
+
+
+-- =====================
+-- GENRES
+-- =====================
+CREATE TABLE Genres (
+    Id INT IDENTITY PRIMARY KEY,
+    Name NVARCHAR(100) UNIQUE NOT NULL
+);
+
+CREATE TABLE BookGenres (
+    BookId INT,
+    GenreId INT,
+    PRIMARY KEY (BookId, GenreId),
+    FOREIGN KEY (BookId) REFERENCES Books(Id),
+    FOREIGN KEY (GenreId) REFERENCES Genres(Id)
+);
+
+
+-- =====================
+-- REVIEWS
+-- =====================
+CREATE TABLE Reviews (
+    Id INT IDENTITY PRIMARY KEY,
+    UserId INT,
+    BookId INT,
+    Rating INT CHECK (Rating BETWEEN 1 AND 5),
+    Comment NVARCHAR(MAX),
+    CreatedAt DATETIME DEFAULT GETDATE(),
+    IsFrozen BIT DEFAULT 0,
+    FOREIGN KEY (UserId) REFERENCES Users(Id),
+    FOREIGN KEY (BookId) REFERENCES Books(Id)
+);
+
+
+-- =====================
+-- BOOK LISTS
+-- =====================
+CREATE TABLE BookLists (
+    Id INT IDENTITY PRIMARY KEY,
+    Name NVARCHAR(50) UNIQUE NOT NULL
+);
+
+INSERT INTO BookLists (Name) VALUES
+('Planned'), ('Reading'), ('Completed'), ('Dropped');
+
+CREATE TABLE UserBookLists (
+    UserId INT,
+    BookId INT,
+    ListId INT,
+    PRIMARY KEY (UserId, BookId),
+    FOREIGN KEY (UserId) REFERENCES Users(Id),
+    FOREIGN KEY (BookId) REFERENCES Books(Id),
+    FOREIGN KEY (ListId) REFERENCES BookLists(Id)
+);
+
+
+-- =====================
+-- REPORTS
+-- =====================
+CREATE TABLE ReportTypes (
+    Id INT IDENTITY PRIMARY KEY,
+    Name NVARCHAR(50)
+);
+
+INSERT INTO ReportTypes (Name) VALUES
+('Book'), ('Review'), ('Author');
+
+CREATE TABLE Reports (
+    Id INT IDENTITY PRIMARY KEY,
+    ReporterId INT,
+    TargetId INT,
+    TargetType INT, -- FK to ReportTypes
+    Reason NVARCHAR(MAX),
+    Status NVARCHAR(50) DEFAULT 'Pending',
+    CreatedAt DATETIME DEFAULT GETDATE(),
+    FOREIGN KEY (ReporterId) REFERENCES Users(Id),
+    FOREIGN KEY (TargetType) REFERENCES ReportTypes(Id)
+);
+
+
+-- =====================
+-- FREEZES (универсальная)
+-- =====================
+CREATE TABLE Freezes (
+    Id INT IDENTITY PRIMARY KEY,
+    TargetId INT,
+    TargetType NVARCHAR(50), -- 'User', 'Book', 'Review'
+    Reason NVARCHAR(MAX),
+    CreatedAt DATETIME DEFAULT GETDATE(),
+    IsActive BIT DEFAULT 1
+);
+
+
+-- =====================
+-- AUTHOR REQUESTS
+-- =====================
+CREATE TABLE AuthorRequests (
+    Id INT IDENTITY PRIMARY KEY,
+    UserId INT,
+    Status NVARCHAR(50) DEFAULT 'Pending',
+    CreatedAt DATETIME DEFAULT GETDATE(),
+    FOREIGN KEY (UserId) REFERENCES Users(Id)
+);
+
+
+-- =====================
+-- UNFREEZE REQUESTS
+-- =====================
+CREATE TABLE UnfreezeRequests (
+    Id INT IDENTITY PRIMARY KEY,
+    UserId INT,
+    FreezeId INT,
+    Reason NVARCHAR(MAX),
+    Status NVARCHAR(50) DEFAULT 'Pending',
+    CreatedAt DATETIME DEFAULT GETDATE(),
+    FOREIGN KEY (UserId) REFERENCES Users(Id),
+    FOREIGN KEY (FreezeId) REFERENCES Freezes(Id)
+);

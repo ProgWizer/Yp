@@ -1,0 +1,30 @@
+﻿<Page x:Class="Yp2.Pages.MoveBook"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:Yp2.Pages"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="MoveBook">
+
+    <Grid>
+
+        <StackPanel Margin="20">
+
+            <TextBlock Text="Выберите список"
+                       FontSize="18"
+                       Margin="0,0,0,10"/>
+
+            <ComboBox x:Name="cmbLists"
+                      Height="30"/>
+
+            <Button Content="Переместить"
+                    Height="35"
+                    Margin="0,20,0,0"
+                    Click="Move_Click"/>
+
+        </StackPanel>
+
+    </Grid>
+</Page>

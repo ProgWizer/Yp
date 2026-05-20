@@ -746,7 +746,7 @@
           <End Role="Roles" Type="Self.Roles" Multiplicity="*" />
           <End Role="Users" Type="Self.Users" Multiplicity="*" />
         </Association>
-        <EntityContainer Name="KingAndJokeEntities1" annotation:LazyLoadingEnabled="true">
+        <EntityContainer Name="KingAndJokeEntities" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="AuthorRequests" EntityType="Self.AuthorRequests" />
           <EntitySet Name="Authors" EntityType="Self.Authors" />
           <EntitySet Name="BookLists" EntityType="Self.BookLists" />
@@ -823,7 +823,7 @@
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-        <EntityContainerMapping StorageEntityContainer="Хранилище KingAndJokeModelContainer" CdmEntityContainer="KingAndJokeEntities1">
+        <EntityContainerMapping StorageEntityContainer="Хранилище KingAndJokeModelContainer" CdmEntityContainer="KingAndJokeEntities">
           <EntitySetMapping Name="AuthorRequests">
             <EntityTypeMapping TypeName="KingAndJokeModel.AuthorRequests">
               <MappingFragment StoreEntitySet="AuthorRequests">

@@ -13,10 +13,10 @@ namespace Yp2
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     
-    public partial class KingAndJokeEntities1 : DbContext
+    public partial class KingAndJokeEntities : DbContext
     {
-        public KingAndJokeEntities1()
-            : base("name=KingAndJokeEntities1")
+        public KingAndJokeEntities()
+            : base("name=KingAndJokeEntities")
         {
         }
     

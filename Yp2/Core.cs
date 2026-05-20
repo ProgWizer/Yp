@@ -8,8 +8,8 @@ namespace Yp2
 {
     class Core
     {
-        public static KingAndJokeEntities1 DB = new KingAndJokeEntities1();
+        public static KingAndJokeEntities DB = new KingAndJokeEntities();
 
-
+        public static Users CurrentUser;
     }
 }

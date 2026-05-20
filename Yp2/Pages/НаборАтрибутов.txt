@@ -1,0 +1,2 @@
+﻿Stretch="UniformToFill" - полностью заполняет отведенное пространство (Image)
+AcceptsReturn="True" - многострочный текст (TextBox)

@@ -1,0 +1,63 @@
+﻿<Page x:Class="Yp2.Pages.CatalogBooks"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:Yp2.Pages"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="CatalogBooks">
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <StackPanel Orientation="Horizontal" Margin="10">
+            <TextBox x:Name="Search" Width="200" Height="30" Margin="0,0,10,0"/>
+            <Button Content="Поиск" Click="Search_Click"/>
+            <!--<ComboBox x:Name="cmbGenre" Margin="20,0,0,0" Width="auto" SelectionChanged="cmbGenre_SelectionChanged"/>-->
+
+
+
+            <ComboBox x:Name="cmbGenre" Width="150" Height="30" Margin="20,0,0,0" SelectionChanged="cmbGenre_SelectionChanged"/>
+
+            <ComboBox x:Name="cmbSort" Width="150" Height="30" Margin="20,0,0,0" SelectionChanged="cmbSort_SelectionChanged">
+                <ComboBoxItem Content="Без сортировки"/>
+                <ComboBoxItem Content="По имени"/>
+                <ComboBoxItem Content="По рейтингу"/>
+            </ComboBox>
+
+
+
+        </StackPanel>
+
+        <ScrollViewer Grid.Row="1">
+            <ItemsControl x:Name="BooksList">
+                <!--<ItemsControl.ItemsPanel>
+                    <ItemsPanelTemplate>
+                        <WrapPanel/>
+                    </ItemsPanelTemplate>
+                </ItemsControl.ItemsPanel>-->
+
+                <ItemsControl.ItemTemplate>
+                    <DataTemplate>
+                        <Border Width="150" Margin="10" BorderBrush="Gray" BorderThickness="1">
+                            <StackPanel>
+
+                                <Image Source="{Binding CoverUrl}" Height="200"/>
+
+                                <TextBlock Text="{Binding Title}" TextAlignment="Center" TextWrapping="Wrap"/>
+
+                                <Button Content="Открыть" Tag="{Binding Id}" Click="OpenBook_Click"/>
+
+                            </StackPanel>
+                        </Border>
+                    </DataTemplate>
+                </ItemsControl.ItemTemplate>
+
+            </ItemsControl>
+        </ScrollViewer>
+    </Grid>
+</Page>

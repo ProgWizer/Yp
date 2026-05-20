@@ -1,0 +1,57 @@
+﻿<Page x:Class="Yp2.Pages.BookListsPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:Yp2.Pages"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="BookListsPage">
+
+        <Grid>
+
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+
+        <WrapPanel Margin="10">
+            <ComboBox x:Name="cmbLists" Width="180" Height="30" SelectionChanged="cmbLists_SelectionChanged"/>
+            <TextBox x:Name="SearchBox" Width="200" Height="30" Margin="10,0,0,0"/>
+            <Button Content="Поиск" Width="100" Height="30" Margin="10,0,0,0" Click="Search_Click"/>
+
+            <ComboBox x:Name="cmbGenre" Width="150" Height="30" Margin="10,0,0,0" SelectionChanged="cmbGenre_SelectionChanged"/>
+            <ComboBox x:Name="cmbSort" Width="150" Height="30" Margin="10,0,0,0" SelectionChanged="cmbSort_SelectionChanged">
+                <ComboBoxItem Content="Без сортировки"/>
+                <ComboBoxItem Content="По имени"/>
+                <ComboBoxItem Content="По рейтингу"/>
+            </ComboBox>
+        </WrapPanel>
+
+        <ScrollViewer Grid.Row="1">
+            <ItemsControl x:Name="BooksList">
+                <ItemsControl.ItemsPanel>
+                    <ItemsPanelTemplate>
+                        <WrapPanel/>
+                    </ItemsPanelTemplate>
+                </ItemsControl.ItemsPanel>
+                <ItemsControl.ItemTemplate>
+
+                    <DataTemplate>
+                        <Border Width="180" Margin="10" BorderBrush="Gray" BorderThickness="1">
+                            <StackPanel>
+                                <Image Source="{Binding CoverUrl}" Height="240" Stretch="UniformToFill"/>
+                                <TextBlock Text="{Binding Title}" FontWeight="Bold" FontSize="16" Margin="5" TextWrapping="Wrap" TextAlignment="Center"/>
+                                <TextBlock Text="{Binding Authors.Users.Username}" Margin="5" TextAlignment="Center"/>
+                                <Button Content="Открыть" Margin="5" Tag="{Binding Id}" Click="OpenBook_Click"/>
+
+                                <ComboBox Margin="5" Tag="{Binding Id}" DisplayMemberPath="Name" SelectedValuePath="Id" SelectionChanged="MoveBook_SelectionChanged"/>
+                                <Button Content="Удалить" Margin="5" Tag="{Binding Id}" Click="DeleteBook_Click"/>
+                            </StackPanel>
+                        </Border>
+                    </DataTemplate>
+                </ItemsControl.ItemTemplate>
+            </ItemsControl>
+        </ScrollViewer>
+    </Grid>
+    </Page>
